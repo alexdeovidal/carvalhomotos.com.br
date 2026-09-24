@@ -60,7 +60,7 @@
     const host = document.createElement('div');
     host.innerHTML = `
       <section class="cookie-banner" role="region" aria-label="Preferências de privacidade" hidden>
-        <div class="cookie-copy"><strong>Sua privacidade importa.</strong><p>Usamos armazenamento local para sua lista de motos, destaques e escolhas de privacidade. Análise e publicidade são opcionais e ficam desativadas até sua escolha. <a href="/politica-de-cookies.html">Entenda os cookies</a>.</p></div>
+        <div class="cookie-copy"><strong>Sua privacidade importa.</strong><p>Usamos armazenamento local para sua lista de motos, destaques e escolhas de privacidade. Análise e publicidade são opcionais e ficam desativadas até sua escolha. <a href="/politica-de-cookies">Entenda os cookies</a>.</p></div>
         <div class="cookie-actions"><button type="button" data-consent="reject">Rejeitar opcionais</button><button type="button" data-consent="settings">Personalizar</button><button type="button" class="cookie-accept" data-consent="accept">Aceitar todos</button></div>
       </section>
       <dialog class="cookie-dialog" aria-labelledby="cookie-dialog-title">
@@ -69,7 +69,7 @@
         <div class="cookie-choice"><div><strong>Essenciais</strong><small>Lista de interesse, sua escolha de privacidade e segurança do site.</small></div><span>Sempre ativos</span></div>
         <label class="cookie-choice"><div><strong>Análise</strong><small>Medição de visitas e uso do site quando uma ferramenta de análise for ativada.</small></div><input type="checkbox" id="consent-analytics"></label>
         <label class="cookie-choice"><div><strong>Publicidade</strong><small>Medição de campanhas e anúncios personalizados quando uma ferramenta de anúncios for ativada.</small></div><input type="checkbox" id="consent-marketing"></label>
-        <div class="cookie-dialog-actions"><a href="/politica-de-privacidade.html">Política de privacidade</a><button type="button" class="cookie-save" data-consent="save">Salvar preferências</button></div>
+        <div class="cookie-dialog-actions"><a href="/politica-de-privacidade">Política de privacidade</a><button type="button" class="cookie-save" data-consent="save">Salvar preferências</button></div>
       </dialog>`;
     document.body.append(host);
     const banner = host.querySelector('.cookie-banner');
