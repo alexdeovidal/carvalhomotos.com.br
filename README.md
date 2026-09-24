@@ -27,3 +27,5 @@ Preços, estoque e horários não são exibidos porque não foram confirmados na
 - Imagens da AZ1 e AZ160 Xtreme: [Avelloz](https://www.avelloz.com.br/). Imagem do triciclo Rema: [Remacar](https://remacar.com.br/). Imagens de referência para os elétricos genéricos e para o triciclo Fox: catálogos de revendedores.
 
 O catálogo reúne 24 fichas de modelos ou tipos de veículo identificados nas publicações. Quando a publicação informa só a potência ou a linha, a descrição marca a imagem como ilustrativa e pede confirmação do modelo exato. Publicações antigas não garantem estoque atual; toda compra começa com a confirmação da equipe.
+
+As menções a Rio 125 CDI e SHI 175 CDI foram registradas nas fichas das respectivas linhas, pois as versões EFI já têm fotos de catálogo isoladas e não há confirmação de estoque separado das versões CDI. Uma hashtag antiga menciona Jet 50cc sem identificar com segurança o modelo anunciado, por isso não gera uma ficha de compra.

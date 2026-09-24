@@ -12,7 +12,7 @@ const PRODUCTS = [
   },
   {
     id: 'rio-125-efi', name: 'Shineray Rio 125 EFI', category: 'urbanas', type: 'Urbana', image: '/public/products/rio-125-efi.webp',
-    badge: 'No Instagram', description: 'Mobilidade urbana com injeção eletrônica, painel digital e porta USB. Modelo apresentado no perfil da loja.',
+    badge: 'No Instagram', description: 'Mobilidade urbana com injeção eletrônica, painel digital e porta USB. Uma foto da loja também identifica a Rio 125 CDI; confirme qual versão está disponível.',
     features: ['125 cc', 'Injeção eletrônica', 'Painel digital'], source: 'https://www.instagram.com/carvalhomotos/p/Ddo7Z6BCdgu/', sourceLabel: 'Ver publicação ↗'
   },
   {
@@ -37,7 +37,7 @@ const PRODUCTS = [
   },
   {
     id: 'shi-175-efi', name: 'Shineray SHI 175 EFI', category: 'trail', type: 'Trail', image: '/public/products/shi-175-efi.webp',
-    badge: 'No Instagram', description: 'Trail de 175 cilindradas divulgada pela Carvalho Motos. Consulte a versão, as cores e a disponibilidade atual.',
+    badge: 'No Instagram', description: 'Trail de 175 cilindradas divulgada pela Carvalho Motos. Uma publicação anterior também cita a SHI 175 CDI; confirme qual versão e cores estão disponíveis.',
     features: ['175 cc', 'Injeção eletrônica', 'Uso urbano e estrada de terra'], source: 'https://www.instagram.com/carvalhomotos/p/DaVtN3qpJWa/', sourceLabel: 'Ver publicação ↗'
   },
   {
@@ -82,7 +82,7 @@ const PRODUCTS = [
   },
   {
     id: 'jet-125-classic', name: 'Shineray Jet 125', category: 'urbanas', type: 'Urbana', image: '/public/products/jet-125-classic.webp',
-    badge: 'No Instagram', description: 'Jet 125 anunciada antes da linha New Jet. Consulte a disponibilidade da versão mostrada.',
+    badge: 'No Instagram', description: 'Jet 125 anunciada no perfil da loja. Consulte a versão e a disponibilidade atual.',
     features: ['125 cc', 'Uso urbano', 'Versão sob consulta'], source: 'https://www.instagram.com/carvalhomotos/reel/DP34P3Pjdh2/', sourceLabel: 'Ver publicação ↗'
   },
   {
