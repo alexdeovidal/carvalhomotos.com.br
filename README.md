@@ -10,7 +10,7 @@ Execute `python3 -m http.server 8000` nesta pasta e abra `http://localhost:8000`
 
 Crie uma aplicação a partir deste repositório, selecione **Dockerfile** como método de build e configure a porta **80**. Defina o domínio `carvalhomotos.meuapp.online` depois que DNS e proxy estiverem prontos.
 
-O site não requer variáveis de ambiente nem banco de dados.
+O site não requer variáveis de ambiente nem banco de dados. O catálogo funciona no navegador: a lista de interesse é salva no dispositivo e a finalização abre uma mensagem pronta no WhatsApp da loja. Valores, estoque e cores são confirmados pela equipe.
 
 ## Fontes do conteúdo
 
@@ -18,3 +18,6 @@ O site não requer variáveis de ambiente nem banco de dados.
 - Bio pública de [@carvalhomotos](https://www.instagram.com/carvalhomotos/) (categorias de produtos e localização).
 
 Preços, estoque e horários não são exibidos porque não foram confirmados nas fontes.
+
+- Fotos isoladas dos modelos New Jet 125, Rio 125 EFI e Denver 400: páginas oficiais da [Shineray](https://www.shineray.com.br/).
+- Recorte da SHI 125 criado a partir da arte fornecida.
