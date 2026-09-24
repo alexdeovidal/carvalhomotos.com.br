@@ -1,6 +1,6 @@
 # Carvalho Motos
 
-Vitrine estática da Carvalho Motos e Máquinas, em Caldas Novas (GO), com compra iniciada pelo WhatsApp.
+Loja estática da Carvalho Motos e Máquinas, em Caldas Novas (GO), com finalização pelo WhatsApp.
 
 ## Rodar localmente
 
@@ -17,12 +17,13 @@ A página inicial mostra um carrossel de modelos. A rota `/loja.html` oferece bu
 ## Fontes do conteúdo
 
 - Arte `carvalho motos.png` fornecida na raiz do projeto (telefone, endereço, produtos, serviços e identidade visual).
-- Bio pública de [@carvalhomotos](https://www.instagram.com/carvalhomotos/) (categorias de produtos e localização).
+- Publicações públicas de [@carvalhomotos](https://www.instagram.com/carvalhomotos/) e [fotos do Facebook](https://www.facebook.com/carvalho.motos.maq/photos), consultadas em 24/09/2026 pelo Chrome conectado. Foram verificadas 158 publicações recentes acessíveis por URL pública, além das fotos do Facebook. As fichas dos produtos levam à publicação correspondente.
 
 Preços, estoque e horários não são exibidos porque não foram confirmados nas fontes.
 
-- Fotos isoladas dos modelos New Jet 125, Rio 125 EFI e Denver 400: páginas oficiais da [Shineray](https://www.shineray.com.br/).
+- Fotos isoladas dos modelos Shineray: páginas oficiais da [Shineray](https://www.shineray.com.br/).
 - Recorte da SHI 125 criado a partir da arte fornecida.
-- Fotos isoladas da Capri, Ultra Max e da bicicleta ilustrativa Santorini R8: catálogo oficial da [Ultra Moove](https://revendas.ultramoove.com.br/). A publicação da loja identifica a bicicleta apenas como elétrica Ultra Moove de sete marchas; o modelo exato deve ser confirmado no atendimento.
+- Fotos isoladas da Capri, Ultra Max, Santorini R4 e da bicicleta ilustrativa Santorini R8: catálogo oficial da [Ultra Moove](https://revendas.ultramoove.com.br/).
+- Imagens da AZ1 e AZ160 Xtreme: [Avelloz](https://www.avelloz.com.br/). Imagem do triciclo Rema: [Remacar](https://remacar.com.br/). Imagens de referência para os elétricos genéricos e para o triciclo Fox: catálogos de revendedores.
 
-O Instagram sem autenticação limita a consulta a parte das publicações. O catálogo contém apenas os modelos identificados pelo nome nas publicações públicas; vídeos que mostram veículos sem informar o modelo não foram convertidos em produtos para evitar anúncios incorretos.
+O catálogo reúne 24 fichas de modelos ou tipos de veículo identificados nas publicações. Quando a publicação informa só a potência ou a linha, a descrição marca a imagem como ilustrativa e pede confirmação do modelo exato. Publicações antigas não garantem estoque atual; toda compra começa com a confirmação da equipe.
