@@ -39,11 +39,16 @@ const PRODUCTS = [
 
 const productById = Object.fromEntries(PRODUCTS.map(product => [product.id, product]));
 const grid = document.getElementById('product-grid');
+const isStore = document.body.dataset.page === 'store';
 const productDialog = document.getElementById('product-dialog');
 const cartDialog = document.getElementById('cart-dialog');
 const checkoutDialog = document.getElementById('checkout-dialog');
 const search = document.getElementById('product-search');
-let filter = 'todos';
+const sort = document.getElementById('product-sort');
+const params = new URLSearchParams(location.search);
+let filter = isStore && ['urbanas', 'custom', 'eletricas', 'bicicletas'].includes(params.get('categoria')) ? params.get('categoria') : 'todos';
+let page = isStore ? Math.max(1, Number.parseInt(params.get('pagina') || '1', 10) || 1) : 1;
+const pageSize = 6;
 let selectedProduct = null;
 let cart = readCart();
 
@@ -73,9 +78,25 @@ function cardMarkup(product) {
   </article>`;
 }
 function renderProducts() {
-  const term = search.value.trim().toLocaleLowerCase('pt-BR');
-  const visible = PRODUCTS.filter(product => (filter === 'todos' || product.category === filter) && product.name.toLocaleLowerCase('pt-BR').includes(term));
-  grid.innerHTML = visible.length ? visible.map(cardMarkup).join('') : '<p class="no-results">Nenhum modelo encontrado. Tente outra busca.</p>';
+  const term = (search?.value || '').trim().toLocaleLowerCase('pt-BR');
+  const visible = PRODUCTS.filter(product => (filter === 'todos' || product.category === filter) && `${product.name} ${product.type} ${product.description}`.toLocaleLowerCase('pt-BR').includes(term));
+  if (isStore) {
+    if (sort.value === 'name') visible.sort((a, b) => a.name.localeCompare(b.name, 'pt-BR'));
+    if (sort.value === 'category') visible.sort((a, b) => a.category.localeCompare(b.category, 'pt-BR') || a.name.localeCompare(b.name, 'pt-BR'));
+    const pages = Math.max(1, Math.ceil(visible.length / pageSize));
+    page = Math.min(page, pages);
+    const first = (page - 1) * pageSize;
+    grid.innerHTML = visible.length ? visible.slice(first, first + pageSize).map(cardMarkup).join('') : '<p class="no-results">Nenhum modelo encontrado. Tente outra busca ou escolha outra categoria.</p>';
+    document.getElementById('results-count').textContent = `${visible.length} ${visible.length === 1 ? 'modelo encontrado' : 'modelos encontrados'}`;
+    document.getElementById('pagination').innerHTML = pages > 1 ? `<button type="button" data-page="${page - 1}" ${page === 1 ? 'disabled' : ''} aria-label="Página anterior">←</button>${Array.from({ length: pages }, (_, i) => `<button type="button" data-page="${i + 1}" class="${page === i + 1 ? 'active' : ''}" aria-label="Página ${i + 1}" ${page === i + 1 ? 'aria-current="page"' : ''}>${i + 1}</button>`).join('')}<button type="button" data-page="${page + 1}" ${page === pages ? 'disabled' : ''} aria-label="Próxima página">→</button>` : '';
+    const url = new URL(location.href);
+    filter === 'todos' ? url.searchParams.delete('categoria') : url.searchParams.set('categoria', filter);
+    term ? url.searchParams.set('busca', search.value.trim()) : url.searchParams.delete('busca');
+    page === 1 ? url.searchParams.delete('pagina') : url.searchParams.set('pagina', String(page));
+    history.replaceState(null, '', url);
+  } else {
+    grid.innerHTML = visible.map(cardMarkup).join('');
+  }
 }
 function renderCart() {
   const entries = Object.entries(cart);
@@ -113,10 +134,44 @@ function showCheckout() {
 
 document.querySelectorAll('.filter').forEach(button => button.addEventListener('click', () => {
   filter = button.dataset.filter;
+  page = 1;
   document.querySelectorAll('.filter').forEach(other => { const active = other === button; other.classList.toggle('active', active); other.setAttribute('aria-pressed', active); });
   renderProducts();
 }));
-search.addEventListener('input', renderProducts);
+if (search) {
+  search.value = params.get('busca') || '';
+  search.addEventListener('input', () => { page = 1; renderProducts(); });
+}
+if (sort) sort.addEventListener('change', () => { page = 1; renderProducts(); });
+if (isStore) {
+  document.querySelectorAll('.filter').forEach(button => { const active = button.dataset.filter === filter; button.classList.toggle('active', active); button.setAttribute('aria-pressed', active); });
+  document.getElementById('pagination').addEventListener('click', event => {
+    const button = event.target.closest('[data-page]');
+    if (!button || button.disabled) return;
+    page = Number(button.dataset.page);
+    renderProducts();
+    document.querySelector('.store-toolbar').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+} else {
+  const viewport = document.getElementById('carousel-viewport');
+  const move = direction => {
+    const card = viewport.querySelector('.product-card');
+    if (!card) return;
+    const step = card.getBoundingClientRect().width + 15;
+    const end = viewport.scrollWidth - viewport.clientWidth;
+    viewport.scrollTo({ left: direction > 0 && viewport.scrollLeft >= end - 5 ? 0 : Math.max(0, viewport.scrollLeft + direction * step), behavior: 'smooth' });
+  };
+  document.getElementById('carousel-prev').addEventListener('click', () => move(-1));
+  document.getElementById('carousel-next').addEventListener('click', () => move(1));
+  if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    let paused = false;
+    viewport.addEventListener('mouseenter', () => { paused = true; });
+    viewport.addEventListener('mouseleave', () => { paused = false; });
+    viewport.addEventListener('focusin', () => { paused = true; });
+    viewport.addEventListener('focusout', () => { paused = false; });
+    setInterval(() => { if (!paused && !document.hidden) move(1); }, 4500);
+  }
+}
 grid.addEventListener('click', event => {
   const detail = event.target.closest('[data-detail]');
   const add = event.target.closest('[data-add]');
