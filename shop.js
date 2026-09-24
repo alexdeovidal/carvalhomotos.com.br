@@ -19,6 +19,21 @@ const PRODUCTS = [
     id: 'denver-400', name: 'Shineray Denver 400', category: 'custom', type: 'Custom', image: '/public/products/denver-400.webp',
     badge: 'Lançamento', description: 'Uma custom de visual clássico para viver a estrada do seu jeito. Lançamento divulgado pela Carvalho Motos.',
     features: ['400 cc', 'Motor em V', 'Transmissão por correia'], source: 'https://www.instagram.com/carvalhomotos/p/DdmlSChiSHm/', sourceLabel: 'Ver publicação ↗'
+  },
+  {
+    id: 'ultra-capri', name: 'Ultra Moove Capri', category: 'eletricas', type: 'Scooter elétrica', image: '/public/products/ultra-capri.png',
+    badge: 'Elétrica', description: 'Scooter elétrica da linha Ultra Moove mostrada nas publicações da Carvalho Motos. Consulte cores, preço e disponibilidade.',
+    features: ['Motor 1000 W', 'Bateria de lítio', 'Mobilidade elétrica'], source: 'https://www.instagram.com/carvalhomotos/reel/Dcyk3twx-fU/', sourceLabel: 'Ver publicação ↗'
+  },
+  {
+    id: 'ultra-max', name: 'Ultra Moove Ultra Max', category: 'eletricas', type: 'Scooter elétrica', image: '/public/products/ultra-max.png',
+    badge: 'Elétrica', description: 'Scooter elétrica Ultra Max apresentada no perfil da loja. Fale com a equipe para confirmar configuração, cores e condições.',
+    features: ['Motor 1000 W', 'Painel digital', 'Bateria de lítio'], source: 'https://www.instagram.com/carvalhomotos/p/DcTdtnSxujk/', sourceLabel: 'Ver publicação ↗'
+  },
+  {
+    id: 'ultra-bike', name: 'Bicicleta elétrica Ultra Moove', category: 'bicicletas', type: 'Bicicleta elétrica', image: '/public/products/ultra-santorini-r8.png',
+    badge: 'Elétrica', description: 'A Carvalho Motos apresentou uma bicicleta elétrica Ultra Moove de 7 marchas. A imagem mostra um modelo da linha Santorini como referência; confirme com a equipe o modelo disponível.',
+    features: ['Versão anunciada com 7 marchas', 'Assistência elétrica', 'Modelo exato sob consulta'], source: 'https://www.instagram.com/carvalhomotos/p/Dcgjp21RBRD/', sourceLabel: 'Ver publicação ↗'
   }
 ];
 
@@ -51,9 +66,10 @@ function addToCart(id) {
   cartDialog.showModal();
 }
 function cardMarkup(product) {
+  const buyUrl = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(`Olá, Carvalho Motos! Quero comprar a ${product.name}. Podem me informar preço, cores, disponibilidade e condições?`)}`;
   return `<article class="product-card">
     <button type="button" class="product-photo" data-detail="${product.id}" aria-label="Ver detalhes de ${product.name}"><span class="product-badge">${product.badge}</span><img src="${product.image}" alt="${product.name}" loading="lazy"></button>
-    <div class="product-info"><p class="product-type">SHINERAY / ${product.type}</p><h3>${product.name}</h3><p class="product-price">Valor sob consulta</p><div class="product-actions"><button type="button" class="product-detail-button" data-detail="${product.id}">Ver detalhes</button><button type="button" class="product-add-button" data-add="${product.id}" aria-label="Adicionar ${product.name} à lista">Adicionar +</button></div></div>
+    <div class="product-info"><p class="product-type">${product.type}</p><h3>${product.name}</h3><p class="product-price">Preço sob consulta • Chame e simule</p><div class="product-actions"><a class="product-buy-button" href="${buyUrl}" target="_blank" rel="noopener noreferrer" aria-label="Comprar ${product.name} pelo WhatsApp">Comprar pelo WhatsApp ↗</a><button type="button" class="product-add-button" data-add="${product.id}" aria-label="Adicionar ${product.name} à lista">+ Lista</button></div><button type="button" class="product-detail-button" data-detail="${product.id}">Ver detalhes e ficha ↗</button></div>
   </article>`;
 }
 function renderProducts() {
@@ -85,6 +101,7 @@ function showDetail(id) {
   document.getElementById('detail-features').innerHTML = product.features.map(feature => `<li>${feature}</li>`).join('');
   document.getElementById('detail-source').href = product.source;
   document.getElementById('detail-source').textContent = product.sourceLabel;
+  document.getElementById('detail-buy').href = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(`Olá, Carvalho Motos! Quero comprar a ${product.name}. Podem me informar preço, cores, disponibilidade e condições?`)}`;
   productDialog.showModal();
 }
 function showCheckout() {

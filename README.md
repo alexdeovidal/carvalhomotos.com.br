@@ -1,6 +1,6 @@
 # Carvalho Motos
 
-Site institucional estático da Carvalho Motos e Máquinas, em Caldas Novas (GO).
+Vitrine estática da Carvalho Motos e Máquinas, em Caldas Novas (GO), com compra iniciada pelo WhatsApp.
 
 ## Rodar localmente
 
@@ -21,3 +21,4 @@ Preços, estoque e horários não são exibidos porque não foram confirmados na
 
 - Fotos isoladas dos modelos New Jet 125, Rio 125 EFI e Denver 400: páginas oficiais da [Shineray](https://www.shineray.com.br/).
 - Recorte da SHI 125 criado a partir da arte fornecida.
+- Fotos isoladas da Capri, Ultra Max e da bicicleta ilustrativa Santorini R8: catálogo oficial da [Ultra Moove](https://revendas.ultramoove.com.br/). A publicação da loja identifica a bicicleta apenas como elétrica Ultra Moove de sete marchas; o modelo exato deve ser confirmado no atendimento.
