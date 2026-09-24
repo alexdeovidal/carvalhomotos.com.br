@@ -14,6 +14,14 @@ O site não requer variáveis de ambiente nem banco de dados. O catálogo funcio
 
 A página inicial mostra um carrossel de modelos. A rota `/loja.html` oferece busca por nome, filtros de categoria, ordenação e paginação. Os filtros e a página atual são refletidos na URL para permitir links diretos.
 
+## Privacidade e anúncios
+
+As páginas `/politica-de-privacidade.html`, `/politica-de-cookies.html` e `/termos-de-uso.html` descrevem o funcionamento atual da loja. O aviso de cookies oferece rejeição, aceitação e escolha separada para análise e publicidade. A preferência pode ser alterada pelo rodapé.
+
+`consent.js` inicia os quatro sinais do Google Consent Mode (`ad_storage`, `analytics_storage`, `ad_user_data`, `ad_personalization`) como `denied` e os atualiza após uma escolha. O estado também fica disponível em `window.CarvalhoConsent.get()` e no evento `carvalho:consent`. **Nenhum identificador ou tag do Google Ads, Analytics, AdSense ou Meta Pixel está instalado.** Ao configurar uma ferramenta, carregue suas tags conforme a preferência correspondente, registre conversões somente quando permitido e atualize as políticas com fornecedor, finalidade e prazo de armazenamento efetivos. Os links de compra enviam ao WhatsApp; por isso, um eventual evento de conversão no site representa um clique de contato, não uma venda concluída.
+
+O destaque da primeira dobra alterna entre motos do catálogo a cada 5 segundos e guarda localmente o último modelo mostrado para evitar repeti-lo na próxima abertura. O carrossel do catálogo também avança a cada 5 segundos.
+
 ## Fontes do conteúdo
 
 - Arte `carvalho motos.png` fornecida na raiz do projeto (telefone, endereço, produtos, serviços e identidade visual).

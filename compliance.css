@@ -1,0 +1,77 @@
+[hidden]{display:none!important}
+
+.site-footer{padding:0;color:#d6e0ef}
+.site-footer .footer-main{display:grid;grid-template-columns:190px minmax(0,1.3fr) minmax(120px,.7fr) minmax(190px,1fr);gap:30px;align-items:start;padding-top:42px;padding-bottom:36px}
+.site-footer .footer-logo img{width:180px;height:auto;object-fit:contain}
+.footer-company strong,.footer-company span{display:block}
+.footer-company strong{font-size:14px;line-height:1.4;color:#fff;margin-bottom:8px}
+.footer-company span{font-size:12px;line-height:1.7;color:#aabbd4}
+.footer-social,.footer-legal{display:flex;flex-direction:column;align-items:flex-start;gap:10px}
+.footer-social a,.footer-legal a,.footer-legal button{font:600 12px 'DM Sans',Arial,sans-serif;color:#d6e0ef;text-align:left}
+.footer-legal button{border:0;background:none;padding:0;cursor:pointer}
+.footer-social a:hover,.footer-legal a:hover,.footer-legal button:hover{color:#fff;text-decoration:underline;text-underline-offset:3px}
+.site-footer .footer-bottom{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:17px 0 24px;border-top:1px solid rgba(255,255,255,.12);font-size:11px;color:#9fb0cb}
+.site-footer .footer-bottom a{text-decoration:underline;text-underline-offset:3px}
+.panel-social-links{display:flex;gap:16px;flex-wrap:wrap}
+.panel-social-links a{font-size:13px}
+.legal-header-cta{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:0 18px;background:#e91938;color:#fff;font-size:11px;font-weight:800;text-transform:uppercase;white-space:nowrap}
+.legal-header-cta:hover{background:#c51630}
+
+.legal-hero{background:linear-gradient(120deg,#07142d,#102b60);padding:60px 0 66px}
+.legal-hero .eyebrow{margin-bottom:15px}
+.legal-hero h1{font:900 clamp(48px,6vw,82px)/.95 'Barlow Condensed',Impact,sans-serif;text-transform:uppercase;margin:0;max-width:850px}
+.legal-hero p:last-child{color:#c3d1e7;line-height:1.6;max-width:700px;font-size:15px;margin:20px 0 0}
+.legal-back{display:inline-block;margin-bottom:30px;color:#a9c0e6;font-size:12px;font-weight:700}
+.legal-back:hover{color:#fff}
+.legal-content{background:#f5f5f2;color:#17243b;padding:55px 0 90px}
+.legal-layout{display:grid;grid-template-columns:minmax(0,760px) minmax(200px,1fr);gap:60px;align-items:start}
+.legal-article{background:#fff;border:1px solid #e2e6eb;padding:42px 48px;box-shadow:0 12px 35px rgba(13,31,67,.05)}
+.legal-article h2{font:800 34px/1 'Barlow Condensed',Impact,sans-serif;text-transform:uppercase;margin:37px 0 14px;color:#102445}
+.legal-article h2:first-child{margin-top:0}
+.legal-article h3{font-size:16px;margin:23px 0 8px;color:#102445}
+.legal-article p,.legal-article li{font-size:14px;line-height:1.75;color:#475873}
+.legal-article p{margin:0 0 15px}
+.legal-article ul{margin:0 0 18px;padding-left:20px}
+.legal-article a{color:#1256c8;text-decoration:underline;text-underline-offset:3px}
+.legal-article table{border-collapse:collapse;width:100%;margin:18px 0 24px;font-size:13px;line-height:1.5}
+.legal-article th,.legal-article td{border:1px solid #d9e0e9;padding:11px;text-align:left;vertical-align:top}
+.legal-article th{background:#edf2f8;color:#102445}
+.legal-article code{font-size:12px;background:#edf2f8;padding:2px 4px;overflow-wrap:anywhere}
+.legal-aside{background:#e9eef5;padding:25px;border-left:4px solid #e91938}
+.legal-aside strong{display:block;font-size:15px;margin-bottom:12px}
+.legal-aside p{color:#4d5e79;font-size:13px;line-height:1.6;margin:0 0 16px}
+.legal-aside a,.legal-aside button{display:block;color:#1054c8;font-size:12px;font-weight:800;margin-top:13px;text-align:left}
+.legal-aside button{border:0;background:none;padding:0;cursor:pointer}
+.legal-aside a:hover,.legal-aside button:hover{text-decoration:underline}
+.legal-date{font-size:12px!important;color:#687992!important;margin-bottom:24px!important}
+.legal-action{border:0;background:#e91938;color:#fff;padding:13px 18px;font:800 12px 'DM Sans',Arial,sans-serif;text-transform:uppercase;cursor:pointer}
+.legal-action:hover{background:#c51630}
+
+.cookie-banner{position:fixed;z-index:1000;left:20px;right:20px;bottom:20px;max-width:1200px;margin:auto;background:#fff;color:#17243b;box-shadow:0 18px 70px rgba(2,10,30,.35);border:1px solid #dfe5ee;border-left:5px solid #e91938;padding:22px 24px;display:flex;align-items:center;justify-content:space-between;gap:30px}
+.cookie-copy{max-width:650px}
+.cookie-copy strong{font-size:16px}
+.cookie-copy p{font-size:12px;line-height:1.55;color:#4c5d77;margin:6px 0 0}
+.cookie-copy a{color:#1054c8;text-decoration:underline;text-underline-offset:2px}
+.cookie-actions{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.cookie-actions button,.cookie-save{border:1px solid #c5cedd;background:#fff;color:#102445;min-height:41px;padding:0 13px;font:800 11px 'DM Sans',Arial,sans-serif;cursor:pointer}
+.cookie-actions button:hover{border-color:#102445}
+.cookie-actions .cookie-accept,.cookie-save{background:#e91938;color:#fff;border-color:#e91938}
+.cookie-actions .cookie-accept:hover,.cookie-save:hover{background:#c51630;border-color:#c51630}
+.cookie-dialog{width:min(600px,calc(100vw - 28px));max-height:min(90vh,760px);overflow:auto;background:#fff;color:#17243b;padding:30px;margin:auto}
+.cookie-dialog::backdrop{background:rgba(3,12,29,.72)}
+.cookie-dialog-head{display:flex;justify-content:space-between;align-items:start;gap:20px}
+.cookie-dialog-head span{font-size:10px;font-weight:800;letter-spacing:.12em;color:#e91938}
+.cookie-dialog h2{font:800 38px/1 'Barlow Condensed',Impact,sans-serif;text-transform:uppercase;margin:7px 0 0}
+.cookie-close{border:0;background:none;color:#17243b;font-size:28px;cursor:pointer;line-height:1}
+.cookie-dialog>p{font-size:13px;color:#53627a;line-height:1.6;margin:18px 0 25px}
+.cookie-choice{display:flex;align-items:center;justify-content:space-between;gap:20px;border-top:1px solid #e0e5ed;padding:18px 0}
+.cookie-choice strong,.cookie-choice small{display:block}
+.cookie-choice strong{font-size:14px;margin-bottom:4px}
+.cookie-choice small{font-size:12px;color:#65748b;line-height:1.45}
+.cookie-choice span{white-space:nowrap;font-size:11px;font-weight:800;color:#63738b}
+.cookie-choice input{width:22px;height:22px;accent-color:#e91938;flex:none;cursor:pointer}
+.cookie-dialog-actions{display:flex;align-items:center;justify-content:space-between;gap:15px;padding-top:18px;border-top:1px solid #e0e5ed}
+.cookie-dialog-actions a{color:#1054c8;text-decoration:underline;font-size:12px}
+
+@media(max-width:1000px){.site-footer .footer-main{grid-template-columns:170px 1fr 1fr}.footer-legal{grid-column:2/-1;flex-direction:row;flex-wrap:wrap;gap:10px 18px}.legal-layout{grid-template-columns:1fr;gap:22px}.legal-aside{max-width:760px}.cookie-banner{align-items:flex-start;flex-direction:column;gap:15px}}
+@media(max-width:650px){.site-footer .footer-main{grid-template-columns:1fr 1fr;gap:22px;padding-top:34px}.site-footer .footer-logo{grid-column:1/-1}.site-footer .footer-logo img{width:160px}.footer-company{grid-column:1/-1}.footer-legal{grid-column:1/-1}.site-footer .footer-bottom{align-items:flex-start;flex-direction:column;gap:9px}.legal-hero{padding:40px 0 48px}.legal-content{padding:25px 0 60px}.legal-article{padding:26px 22px}.legal-article h2{font-size:29px}.legal-article table{display:block;overflow-x:auto}.cookie-banner{left:10px;right:10px;bottom:10px;padding:17px}.cookie-actions{width:100%;justify-content:stretch}.cookie-actions button{flex:1 1 calc(50% - 8px)}.cookie-actions .cookie-accept{flex-basis:100%}.cookie-dialog{padding:22px}.cookie-dialog h2{font-size:31px}.cookie-dialog-actions{align-items:flex-start;flex-direction:column}.cookie-save{width:100%}}

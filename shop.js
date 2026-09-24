@@ -254,7 +254,36 @@ if (isStore) {
     viewport.addEventListener('mouseleave', () => { paused = false; });
     viewport.addEventListener('focusin', () => { paused = true; });
     viewport.addEventListener('focusout', () => { paused = false; });
-    setInterval(() => { if (!paused && !document.hidden) move(1); }, 4500);
+    setInterval(() => { if (!paused && !document.hidden) move(1); }, 5000);
+  }
+
+  const heroImage = document.getElementById('hero-product-image');
+  const heroName = document.getElementById('hero-product-name');
+  const heroLink = document.getElementById('hero-product-link');
+  if (heroImage && heroName && heroLink) {
+    const featuredIds = ['shi-125', 'new-jet-125', 'rio-125-efi', 'denver-400', 'ultra-capri', 'ultra-max', 'shi-250', 'storm-200', 'jet-125ss', 'titanium-250', 'urban-150', 'az160-xtreme'];
+    const featured = featuredIds.map(id => productById[id]).filter(Boolean);
+    const lastKey = 'carvalho-hero-last';
+    let lastId = '';
+    try { lastId = localStorage.getItem(lastKey) || ''; } catch {}
+    const lastIndex = featured.findIndex(product => product.id === lastId);
+    let currentIndex = Math.floor(Math.random() * (featured.length - (lastIndex >= 0 ? 1 : 0)));
+    if (lastIndex >= 0 && currentIndex >= lastIndex) currentIndex += 1;
+
+    const showHero = () => {
+      const product = featured[currentIndex];
+      heroName.textContent = product.name;
+      heroImage.src = product.image;
+      heroImage.alt = product.name + ' em destaque';
+      heroLink.href = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(`Olá! Quero comprar a ${product.name}. Podem me passar preço, cores e condições?`)}`;
+      try { localStorage.setItem(lastKey, product.id); } catch {}
+    };
+    showHero();
+    setInterval(() => {
+      if (document.hidden) return;
+      currentIndex = (currentIndex + 1) % featured.length;
+      showHero();
+    }, 5000);
   }
 }
 grid.addEventListener('click', event => {
