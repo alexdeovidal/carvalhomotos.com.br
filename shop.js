@@ -239,23 +239,22 @@ if (isStore) {
   });
 } else {
   const viewport = document.getElementById('carousel-viewport');
+  const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const move = direction => {
     const card = viewport.querySelector('.product-card');
     if (!card) return;
     const step = card.getBoundingClientRect().width + 15;
     const end = viewport.scrollWidth - viewport.clientWidth;
-    viewport.scrollTo({ left: direction > 0 && viewport.scrollLeft >= end - 5 ? 0 : Math.max(0, viewport.scrollLeft + direction * step), behavior: 'smooth' });
+    viewport.scrollTo({ left: direction > 0 && viewport.scrollLeft >= end - 5 ? 0 : Math.max(0, viewport.scrollLeft + direction * step), behavior: reducedMotion ? 'instant' : 'smooth' });
   };
   document.getElementById('carousel-prev').addEventListener('click', () => move(-1));
   document.getElementById('carousel-next').addEventListener('click', () => move(1));
-  if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    let paused = false;
-    viewport.addEventListener('mouseenter', () => { paused = true; });
-    viewport.addEventListener('mouseleave', () => { paused = false; });
-    viewport.addEventListener('focusin', () => { paused = true; });
-    viewport.addEventListener('focusout', () => { paused = false; });
-    setInterval(() => { if (!paused && !document.hidden) move(1); }, 5000);
-  }
+  let paused = false;
+  viewport.addEventListener('mouseenter', () => { paused = true; });
+  viewport.addEventListener('mouseleave', () => { paused = false; });
+  viewport.addEventListener('focusin', () => { paused = true; });
+  viewport.addEventListener('focusout', () => { paused = false; });
+  setInterval(() => { if (!paused && !document.hidden) move(1); }, 5000);
 
   const heroImage = document.getElementById('hero-product-image');
   const heroName = document.getElementById('hero-product-name');
