@@ -4,7 +4,7 @@ Site institucional estático da Carvalho Motos e Máquinas, em Caldas Novas (GO)
 
 ## Rodar localmente
 
-Abra `index.html` no navegador ou execute `python3 -m http.server 8000` nesta pasta.
+Execute `python3 -m http.server 8000` nesta pasta e abra `http://localhost:8000`.
 
 ## Coolify
 
