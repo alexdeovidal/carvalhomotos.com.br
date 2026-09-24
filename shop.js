@@ -127,7 +127,7 @@ document.getElementById('checkout-form').addEventListener('submit', event => {
   const lines = Object.entries(cart).map(([id, quantity]) => `• ${quantity} × ${productById[id].name}`);
   const message = `Olá, Carvalho Motos! Vim pelo site e gostaria de consultar estes modelos:\n\n${lines.join('\n')}\n\nNome: ${name}\nMeu WhatsApp: ${phone}${note ? `\nObservação: ${note}` : ''}\n\nPodem confirmar valores, cores e disponibilidade?`;
   const url = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(message)}`;
-  window.open(url, '_blank', 'noopener,noreferrer');
+  window.location.assign(url);
 });
 renderProducts();
 saveCart();
