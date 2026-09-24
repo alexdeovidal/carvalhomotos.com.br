@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 404 96" role="img" aria-labelledby="title">
-  <title id="title">Carvalho Motos</title>
-  <path fill="#ed1834" d="M46 4a42 42 0 0 0 0 84V70a24 24 0 0 1 0-48V4Zm10 0v27l15 13-15 14v30a42 42 0 0 0 25-75L69 25 56 14V4Z"/>
-  <path fill="#ed1834" d="m49 28 21 16-21 17V28Z"/>
-  <text x="102" y="53" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="45" font-weight="900" letter-spacing="1.5">CARVALHO</text>
-  <path stroke="#ed1834" stroke-width="2" d="M104 73h86m166 0h46"/>
-  <text x="202" y="82" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="800" letter-spacing="4">MOTOS</text>
-</svg>
