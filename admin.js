@@ -103,11 +103,11 @@ $('#logout').addEventListener('click', async () => {
 });
 $('#new-product').addEventListener('click', () => openForm());
 $('#watch-tutorial').addEventListener('click', () => {
+  $('#tutorial-video').src = 'https://www.youtube-nocookie.com/embed/c4qALLcS_Ko?autoplay=1&rel=0';
   $('#tutorial-dialog').showModal();
-  $('#tutorial-video').play().catch(() => {});
 });
 $('#close-tutorial').addEventListener('click', () => $('#tutorial-dialog').close());
-$('#tutorial-dialog').addEventListener('close', () => $('#tutorial-video').pause());
+$('#tutorial-dialog').addEventListener('close', () => $('#tutorial-video').removeAttribute('src'));
 $('#tutorial-dialog').addEventListener('click', (event) => {
   if (event.target === $('#tutorial-dialog')) $('#tutorial-dialog').close();
 });

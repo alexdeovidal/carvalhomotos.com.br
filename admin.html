@@ -10,8 +10,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/admin.css?v=20260925-2">
-  <script src="/admin.js?v=20260925-2" defer></script>
+  <link rel="stylesheet" href="/admin.css?v=20260925-3">
+  <script src="/admin.js?v=20260925-3" defer></script>
 </head>
 <body>
   <header class="admin-header"><a href="/" aria-label="Voltar ao site"><img src="/public/logo-carvalho-motos.png" alt="Carvalho Motos"></a><div><strong>Painel de produtos</strong><span>Gestão do catálogo</span></div><a class="site-link" href="/loja" target="_blank" rel="noopener noreferrer">Ver loja ↗</a></header>
@@ -50,7 +50,8 @@
   <dialog id="tutorial-dialog" class="tutorial-dialog" aria-labelledby="tutorial-title">
     <div class="tutorial-head"><div><p class="eyebrow">GUIA DO PAINEL</p><h2 id="tutorial-title">Como gerenciar produtos</h2></div><button type="button" class="icon-button" id="close-tutorial" aria-label="Fechar tutorial">×</button></div>
     <p class="tutorial-description">Veja como entrar no painel, cadastrar, editar e excluir um produto. O vídeo mostra cada alteração na loja.</p>
-    <video id="tutorial-video" controls playsinline preload="none" aria-label="Tutorial de gerenciamento de produtos"><source src="/api/admin/tutorial-video?v=20260925-privacidade" type="video/mp4">Seu navegador não suporta reprodução de vídeo.</video>
+    <iframe id="tutorial-video" title="Tutorial de gerenciamento de produtos da Carvalho Motos" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <p class="tutorial-link">Se o vídeo não abrir aqui, <a href="https://youtu.be/c4qALLcS_Ko" target="_blank" rel="noopener noreferrer">assista no YouTube</a>.</p>
   </dialog>
 </body>
 </html>
