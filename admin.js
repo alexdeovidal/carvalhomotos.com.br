@@ -102,6 +102,15 @@ $('#logout').addEventListener('click', async () => {
   finally { showLogin(); }
 });
 $('#new-product').addEventListener('click', () => openForm());
+$('#watch-tutorial').addEventListener('click', () => {
+  $('#tutorial-dialog').showModal();
+  $('#tutorial-video').play().catch(() => {});
+});
+$('#close-tutorial').addEventListener('click', () => $('#tutorial-dialog').close());
+$('#tutorial-dialog').addEventListener('close', () => $('#tutorial-video').pause());
+$('#tutorial-dialog').addEventListener('click', (event) => {
+  if (event.target === $('#tutorial-dialog')) $('#tutorial-dialog').close();
+});
 $('#close-form').addEventListener('click', () => $('#product-dialog').close());
 $('#cancel-form').addEventListener('click', () => $('#product-dialog').close());
 $('#cancel-delete').addEventListener('click', () => $('#delete-dialog').close());

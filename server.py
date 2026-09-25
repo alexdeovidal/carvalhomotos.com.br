@@ -281,6 +281,12 @@ def admin_products(admin: dict = Depends(require_admin)):
     return no_store([product_dict(row) for row in rows])
 
 
+@app.get("/api/admin/tutorial-video")
+def admin_tutorial_video(admin: dict = Depends(require_admin)):
+    return FileResponse(ROOT / "media" / "tutorial-admin.mp4", media_type="video/mp4",
+                        headers={"Cache-Control": "private, max-age=3600"})
+
+
 @app.post("/api/admin/products")
 def create_product(item: ProductInput, admin: dict = Depends(require_write)):
     validate_product(item)

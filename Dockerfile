@@ -5,6 +5,7 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY server.py seed-products.json *.html *.css *.js ./
+COPY media/ ./media/
 COPY public/ ./public/
 RUN mkdir -p /data && chown -R 10001:10001 /data /app
 USER 10001

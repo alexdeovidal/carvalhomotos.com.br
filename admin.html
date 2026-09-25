@@ -10,8 +10,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/admin.css?v=20260925-1">
-  <script src="/admin.js?v=20260925-1" defer></script>
+  <link rel="stylesheet" href="/admin.css?v=20260925-2">
+  <script src="/admin.js?v=20260925-2" defer></script>
 </head>
 <body>
   <header class="admin-header"><a href="/" aria-label="Voltar ao site"><img src="/public/logo-carvalho-motos.png" alt="Carvalho Motos"></a><div><strong>Painel de produtos</strong><span>Gestão do catálogo</span></div><a class="site-link" href="/loja" target="_blank" rel="noopener noreferrer">Ver loja ↗</a></header>
@@ -21,7 +21,7 @@
       <form id="login-form"><label>E-mail<input type="email" name="email" autocomplete="username" required></label><label>Senha<input type="password" name="password" autocomplete="current-password" required></label><button type="submit" class="primary-button">Entrar</button></form>
     </section>
     <section id="dashboard-view" hidden>
-      <div class="dashboard-head"><div><p class="eyebrow">CARVALHO MOTOS</p><h1>Produtos da loja</h1><p>Cadastre, edite e controle o que aparece no site. Modelos “sob consulta” preservam o catálogo atual.</p></div><div class="head-actions"><button id="new-product" class="primary-button" type="button">+ Novo produto</button><button id="logout" class="secondary-button" type="button">Sair</button></div></div>
+      <div class="dashboard-head"><div><p class="eyebrow">CARVALHO MOTOS</p><h1>Produtos da loja</h1><p>Cadastre, edite e controle o que aparece no site. Modelos “sob consulta” preservam o catálogo atual.</p></div><div class="head-actions"><button id="watch-tutorial" class="secondary-button" type="button" aria-haspopup="dialog">▶ Ver tutorial</button><button id="new-product" class="primary-button" type="button">+ Novo produto</button><button id="logout" class="secondary-button" type="button">Sair</button></div></div>
       <div class="stats" id="stats"></div>
       <div class="toolbar"><label class="search-label"><span class="sr-only">Buscar produtos</span><input id="admin-search" type="search" placeholder="Buscar por nome ou categoria"></label><label><span class="sr-only">Filtrar situação</span><select id="admin-filter"><option value="all">Todas as situações</option><option value="inquiry">Sob consulta</option><option value="available">Disponíveis</option><option value="out_of_stock">Fora de estoque</option><option value="inactive">Ocultos</option></select></label></div>
       <div id="product-list" class="product-list" aria-live="polite"></div>
@@ -46,6 +46,11 @@
         <button type="button" id="confirm-delete" class="primary-button">Sim, excluir produto</button>
       </div>
     </div>
+  </dialog>
+  <dialog id="tutorial-dialog" class="tutorial-dialog" aria-labelledby="tutorial-title">
+    <div class="tutorial-head"><div><p class="eyebrow">GUIA DO PAINEL</p><h2 id="tutorial-title">Como gerenciar produtos</h2></div><button type="button" class="icon-button" id="close-tutorial" aria-label="Fechar tutorial">×</button></div>
+    <p class="tutorial-description">Veja como entrar no painel, cadastrar, editar e excluir um produto. O vídeo mostra cada alteração na loja.</p>
+    <video id="tutorial-video" controls playsinline preload="none" aria-label="Tutorial de gerenciamento de produtos"><source src="/api/admin/tutorial-video" type="video/mp4">Seu navegador não suporta reprodução de vídeo.</video>
   </dialog>
 </body>
 </html>

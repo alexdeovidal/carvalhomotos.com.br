@@ -70,6 +70,14 @@ class CatalogTests(unittest.TestCase):
         self.assertEqual(self.client.get('/loja.html', follow_redirects=False).status_code, 301)
         self.assertEqual(self.client.get('/.env.local').status_code, 404)
 
+    def test_tutorial_video_requires_admin_session_and_supports_seek(self):
+        self.assertEqual(self.client.get('/api/admin/tutorial-video').status_code, 401)
+        self.login()
+        response = self.client.get('/api/admin/tutorial-video', headers={'Range': 'bytes=0-1023'})
+        self.assertEqual(response.status_code, 206)
+        self.assertEqual(response.headers['content-type'], 'video/mp4')
+        self.assertEqual(len(response.content), 1024)
+
 
 if __name__ == '__main__':
     unittest.main()

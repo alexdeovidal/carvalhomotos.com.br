@@ -14,6 +14,8 @@ Crie uma aplicação a partir deste repositório, selecione **Dockerfile** como 
 
 O catálogo é lido da API do servidor. A lista de interesse continua salva no dispositivo e a finalização abre uma mensagem pronta no WhatsApp da loja. Valores e cores são confirmados pela equipe.
 
+O painel oferece o botão **Ver tutorial**, com um vídeo de cadastro, edição e exclusão. O vídeo é servido somente após o login administrativo.
+
 A página inicial mostra um carrossel de modelos. A rota `/loja` oferece busca por nome, filtros de categoria, ordenação e paginação. Os filtros e a página atual são refletidos na URL para permitir links diretos.
 
 ## Privacidade e anúncios
