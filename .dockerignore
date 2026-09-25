@@ -1,5 +1,14 @@
 .git
 .DS_Store
+.env*
+!*.example
+data/
+__pycache__/
+.pytest_cache/
+*.pyc
 README.md
-
-.env.local
+tests/
+nginx.conf
+carvalho motos.png
+logo-carvalho-motos.png
+favicon-carvalho-motos.png

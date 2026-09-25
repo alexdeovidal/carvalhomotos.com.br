@@ -1,16 +1,18 @@
 # Carvalho Motos
 
-Loja estática da Carvalho Motos e Máquinas, em Caldas Novas (GO), com finalização pelo WhatsApp.
+Loja da Carvalho Motos e Máquinas, em Caldas Novas (GO), com catálogo administrável e finalização pelo WhatsApp.
 
 ## Rodar localmente
 
-Execute `python3 -m http.server 8000` nesta pasta e abra `http://localhost:8000`.
+Configure `ADMIN_EMAIL` e `ADMIN_PASSWORD` no ambiente (use `.env.example` como referência), instale `requirements.txt` e execute `uvicorn server:app --host 127.0.0.1 --port 8000`. Abra `http://localhost:8000` e o painel em `http://localhost:8000/admin`.
+
+O primeiro início cria o banco SQLite em `DATA_DIR` e importa as 24 fichas existentes. A senha é armazenada como hash PBKDF2. Os produtos importados começam com disponibilidade **sob consulta**, pois as publicações antigas não confirmam estoque atual. O painel permite cadastrar, editar, excluir, ocultar, marcar disponível ou fora de estoque e enviar até oito imagens por produto. Fotos enviadas são convertidas para WebP. Produtos ocultos saem da loja; produtos fora de estoque aparecem sem ação de compra.
 
 ## Coolify
 
-Crie uma aplicação a partir deste repositório, selecione **Dockerfile** como método de build e configure a porta **80**. Defina o domínio `carvalhomotos.meuapp.online` depois que DNS e proxy estiverem prontos.
+Crie uma aplicação a partir deste repositório, selecione **Dockerfile** como método de build e configure a porta **80**. Defina o domínio `carvalhomotos.meuapp.online` depois que DNS e proxy estiverem prontos. Configure `ADMIN_EMAIL` e `ADMIN_PASSWORD` como variáveis **de runtime**; não coloque a senha no repositório. Monte um volume persistente em `/data` **antes da primeira implantação** para guardar `catalog.sqlite3` e `uploads/`. Mantenha uma instância da aplicação (SQLite usa arquivo local) e faça backup periódico do volume.
 
-O site não requer variáveis de ambiente nem banco de dados. O catálogo funciona no navegador: a lista de interesse é salva no dispositivo e a finalização abre uma mensagem pronta no WhatsApp da loja. Valores, estoque e cores são confirmados pela equipe.
+O catálogo é lido da API do servidor. A lista de interesse continua salva no dispositivo e a finalização abre uma mensagem pronta no WhatsApp da loja. Valores e cores são confirmados pela equipe.
 
 A página inicial mostra um carrossel de modelos. A rota `/loja` oferece busca por nome, filtros de categoria, ordenação e paginação. Os filtros e a página atual são refletidos na URL para permitir links diretos.
 

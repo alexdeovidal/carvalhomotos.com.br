@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="theme-color" content="#07142d">
+  <title>Administração | Carvalho Motos</title>
+  <link rel="icon" type="image/png" href="/public/favicon-carvalho-motos.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/admin.css">
+  <script src="/admin.js" defer></script>
+</head>
+<body>
+  <header class="admin-header"><a href="/" aria-label="Voltar ao site"><img src="/public/logo-carvalho-motos.png" alt="Carvalho Motos"></a><div><strong>Painel de produtos</strong><span>Gestão do catálogo</span></div><a class="site-link" href="/loja" target="_blank" rel="noopener noreferrer">Ver loja ↗</a></header>
+  <main>
+    <section id="login-view" class="login-card" hidden>
+      <p class="eyebrow">ACESSO RESTRITO</p><h1>Entre no painel.</h1><p>Use o e-mail e a senha de administração para gerenciar os produtos da loja.</p>
+      <form id="login-form"><label>E-mail<input type="email" name="email" autocomplete="username" required></label><label>Senha<input type="password" name="password" autocomplete="current-password" required></label><button type="submit" class="primary-button">Entrar</button></form>
+    </section>
+    <section id="dashboard-view" hidden>
+      <div class="dashboard-head"><div><p class="eyebrow">CARVALHO MOTOS</p><h1>Produtos da loja</h1><p>Cadastre, edite e controle o que aparece no site. Modelos “sob consulta” preservam o catálogo atual.</p></div><div class="head-actions"><button id="new-product" class="primary-button" type="button">+ Novo produto</button><button id="logout" class="secondary-button" type="button">Sair</button></div></div>
+      <div class="stats" id="stats"></div>
+      <div class="toolbar"><label class="search-label"><span class="sr-only">Buscar produtos</span><input id="admin-search" type="search" placeholder="Buscar por nome ou categoria"></label><label><span class="sr-only">Filtrar situação</span><select id="admin-filter"><option value="all">Todas as situações</option><option value="inquiry">Sob consulta</option><option value="available">Disponíveis</option><option value="out_of_stock">Fora de estoque</option><option value="inactive">Ocultos</option></select></label></div>
+      <div id="product-list" class="product-list" aria-live="polite"></div>
+    </section>
+    <p id="loading-view" class="loading">Carregando painel…</p>
+  </main>
+  <div id="notice" class="notice" role="status" aria-live="polite" hidden></div>
+  <dialog id="product-dialog" class="product-dialog" aria-labelledby="form-title"><form id="product-form" class="product-form">
+    <div class="form-head"><div><p class="eyebrow">CATÁLOGO</p><h2 id="form-title">Novo produto</h2></div><button type="button" class="icon-button" id="close-form" aria-label="Fechar">×</button></div>
+    <div class="form-grid"><label class="wide">Nome do modelo<input name="name" required maxlength="120" placeholder="Ex.: Shineray SHI 125"></label><label>Categoria<select name="category" required><option value="urbanas">Motos urbanas</option><option value="trail">Trail e crossover</option><option value="custom">Custom</option><option value="eletricas">Scooters elétricas</option><option value="bicicletas">Bicicletas elétricas</option><option value="triciclos">Triciclos elétricos</option></select></label><label>Tipo<input name="type" required maxlength="80" placeholder="Ex.: Urbana"></label><label>Situação<select name="status"><option value="inquiry">Disponibilidade sob consulta</option><option value="available">Disponível</option><option value="out_of_stock">Fora de estoque</option><option value="inactive">Oculto / desativado</option></select></label><label>Ordem de exibição<input name="sort_order" type="number" min="0" max="100000" value="0"></label><label class="wide">Selo de destaque<input name="badge" maxlength="50" placeholder="Ex.: Elétrica"></label><label class="wide">Descrição<textarea name="description" rows="4" maxlength="2000"></textarea></label><label class="wide">Características <small>Uma por linha, até 12</small><textarea name="features" rows="4" placeholder="125 cc&#10;Partida elétrica&#10;Freios CBS"></textarea></label><label class="wide">Link da publicação ou fonte<input name="source" maxlength="500" placeholder="https://..."></label><label class="wide">Texto do link da fonte<input name="sourceLabel" maxlength="80" value="Ver publicação"></label></div>
+    <div class="images-section"><div><h3>Fotos do produto</h3><p>Envie até 8 imagens JPG, PNG ou WebP (máximo 8 MB cada). A primeira aparece na vitrine.</p></div><label class="upload-button">+ Enviar imagens<input id="image-upload" type="file" accept="image/jpeg,image/png,image/webp" multiple hidden></label></div><div id="image-list" class="image-list"></div>
+    <div class="form-actions"><button type="button" id="cancel-form" class="secondary-button">Cancelar</button><button type="submit" class="primary-button">Salvar produto</button></div>
+  </form></dialog>
+</body>
+</html>
