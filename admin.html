@@ -35,5 +35,17 @@
     <div class="images-section"><div><h3>Fotos do produto</h3><p>Envie até 8 imagens JPG, PNG ou WebP (máximo 8 MB cada). A primeira aparece na vitrine.</p></div><label class="upload-button">+ Enviar imagens<input id="image-upload" type="file" accept="image/jpeg,image/png,image/webp" multiple hidden></label></div><div id="image-list" class="image-list"></div>
     <div class="form-actions"><button type="button" id="cancel-form" class="secondary-button">Cancelar</button><button type="submit" class="primary-button">Salvar produto</button></div>
   </form></dialog>
+  <dialog id="delete-dialog" class="delete-dialog" aria-labelledby="delete-title" aria-describedby="delete-description">
+    <div class="delete-dialog-content">
+      <div class="delete-icon" aria-hidden="true">×</div>
+      <p class="eyebrow">EXCLUIR PRODUTO</p>
+      <h2 id="delete-title">Excluir do catálogo?</h2>
+      <p id="delete-description">O produto <strong id="delete-product-name"></strong> será removido da loja. Esta ação não pode ser desfeita.</p>
+      <div class="delete-actions">
+        <button type="button" id="cancel-delete" class="secondary-button">Cancelar</button>
+        <button type="button" id="confirm-delete" class="primary-button">Sim, excluir produto</button>
+      </div>
+    </div>
+  </dialog>
 </body>
 </html>

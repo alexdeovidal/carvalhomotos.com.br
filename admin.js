@@ -5,6 +5,7 @@ const categories = { urbanas: 'Motos urbanas', trail: 'Trail e crossover', custo
 let csrf = '';
 let products = [];
 let editingId = null;
+let deletingId = null;
 let images = [];
 let noticeTimer;
 
@@ -103,6 +104,23 @@ $('#logout').addEventListener('click', async () => {
 $('#new-product').addEventListener('click', () => openForm());
 $('#close-form').addEventListener('click', () => $('#product-dialog').close());
 $('#cancel-form').addEventListener('click', () => $('#product-dialog').close());
+$('#cancel-delete').addEventListener('click', () => $('#delete-dialog').close());
+$('#delete-dialog').addEventListener('close', () => { deletingId = null; });
+$('#delete-dialog').addEventListener('click', (event) => {
+  if (event.target === $('#delete-dialog')) $('#delete-dialog').close();
+});
+$('#confirm-delete').addEventListener('click', async () => {
+  if (!deletingId) return;
+  const button = $('#confirm-delete');
+  button.disabled = true;
+  try {
+    await api(`/api/admin/products/${encodeURIComponent(deletingId)}`, { method: 'DELETE' });
+    $('#delete-dialog').close();
+    await refreshProducts();
+    notice('Produto excluído.');
+  } catch (error) { notice(error.message, true); }
+  finally { button.disabled = false; }
+});
 $('#admin-search').addEventListener('input', render);
 $('#admin-filter').addEventListener('change', render);
 $('#image-list').addEventListener('click', (event) => {
@@ -145,15 +163,17 @@ $('#product-form').addEventListener('submit', async (event) => {
   finally { submit.disabled = false; }
 });
 
-$('#product-list').addEventListener('click', async (event) => {
+$('#product-list').addEventListener('click', (event) => {
   const edit = event.target.closest('[data-edit]');
   const remove = event.target.closest('[data-delete]');
   if (edit) openForm(products.find((item) => item.id === edit.dataset.edit));
   if (remove) {
     const product = products.find((item) => item.id === remove.dataset.delete);
-    if (!product || !confirm(`Excluir “${product.name}” do catálogo? Esta ação não pode ser desfeita.`)) return;
-    try { await api(`/api/admin/products/${encodeURIComponent(product.id)}`, { method: 'DELETE' }); await refreshProducts(); notice('Produto excluído.'); }
-    catch (error) { notice(error.message, true); }
+    if (!product) return;
+    deletingId = product.id;
+    $('#delete-product-name').textContent = product.name;
+    $('#delete-dialog').showModal();
+    $('#cancel-delete').focus();
   }
 });
 $('#product-list').addEventListener('change', async (event) => {
