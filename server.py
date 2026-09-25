@@ -377,7 +377,8 @@ def home():
 def static_page(path: str):
     if path in ASSETS:
         media = "text/javascript" if path.endswith(".js") else "text/css"
-        return FileResponse(ROOT / path, media_type=media)
+        headers = {"Cache-Control": "no-store"} if path.startswith("admin.") else None
+        return FileResponse(ROOT / path, media_type=media, headers=headers)
     if path.endswith(".html") and path[:-5] in PAGES:
         return RedirectResponse("/" + path[:-5], status_code=301)
     if path in PAGES:
