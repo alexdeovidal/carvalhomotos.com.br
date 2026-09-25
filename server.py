@@ -111,6 +111,15 @@ def init_database():
             if not email or len(password) < 12:
                 raise RuntimeError("Configure ADMIN_EMAIL e ADMIN_PASSWORD (mínimo 12 caracteres) antes de iniciar.")
             db.execute("INSERT INTO admins(email, password_hash) VALUES (?, ?)", (email, hash_password(password)))
+        else:
+            email = os.getenv("ADMIN_EMAIL", "").strip().lower()
+            password = os.getenv("ADMIN_PASSWORD", "")
+            if email and len(password) >= 12:
+                current = db.execute("SELECT id, email, password_hash FROM admins ORDER BY id LIMIT 1").fetchone()
+                if current["email"] != email or not verify_password(password, current["password_hash"]):
+                    db.execute("UPDATE admins SET email=?, password_hash=? WHERE id=?",
+                               (email, hash_password(password), current["id"]))
+                    db.execute("DELETE FROM sessions WHERE admin_id=?", (current["id"],))
         seeded = db.execute("SELECT value FROM metadata WHERE key='products_seeded'").fetchone()
         if not seeded:
             products = json.loads((ROOT / "seed-products.json").read_text(encoding="utf-8"))

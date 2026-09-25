@@ -6,7 +6,7 @@ Loja da Carvalho Motos e Máquinas, em Caldas Novas (GO), com catálogo administ
 
 Configure `ADMIN_EMAIL` e `ADMIN_PASSWORD` no ambiente (use `.env.example` como referência), instale `requirements.txt` e execute `uvicorn server:app --host 127.0.0.1 --port 8000`. Abra `http://localhost:8000` e o painel em `http://localhost:8000/admin`.
 
-O primeiro início cria o banco SQLite em `DATA_DIR` e importa as 24 fichas existentes. A senha é armazenada como hash PBKDF2. Os produtos importados começam com disponibilidade **sob consulta**, pois as publicações antigas não confirmam estoque atual. O painel permite cadastrar, editar, excluir, ocultar, marcar disponível ou fora de estoque e enviar até oito imagens por produto. Fotos enviadas são convertidas para WebP. Produtos ocultos saem da loja; produtos fora de estoque aparecem sem ação de compra.
+O primeiro início cria o banco SQLite em `DATA_DIR` e importa as 24 fichas existentes. A senha é armazenada como hash PBKDF2; se `ADMIN_PASSWORD` mudar, o login é atualizado no próximo início da aplicação e as sessões anteriores são encerradas. Os produtos importados começam com disponibilidade **sob consulta**, pois as publicações antigas não confirmam estoque atual. O painel permite cadastrar, editar, excluir, ocultar, marcar disponível ou fora de estoque e enviar até oito imagens por produto. Fotos enviadas são convertidas para WebP. Produtos ocultos saem da loja; produtos fora de estoque aparecem sem ação de compra.
 
 ## Coolify
 

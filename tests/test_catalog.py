@@ -51,6 +51,10 @@ class CatalogTests(unittest.TestCase):
         self.assertEqual(len(self.client.get('/api/admin/products').json()), 24)
         self.server.init_database()
         self.assertEqual(len(self.client.get('/api/admin/products').json()), 24)
+        os.environ['ADMIN_PASSWORD'] = 'another-long-test-password'
+        self.server.init_database()
+        self.assertEqual(self.client.get('/api/admin/session').status_code, 401)
+        self.assertEqual(self.client.post('/api/admin/login', json={'email': 'admin@example.test', 'password': 'another-long-test-password'}).status_code, 200)
 
     def test_image_upload_and_static_routes(self):
         headers = self.login()
